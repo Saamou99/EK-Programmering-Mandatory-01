@@ -45,6 +45,3 @@ with open("domains.csv", "w", newline="") as domains,\
         
         for processes in processes_list:
             processes_writer.writerow([alertId, machineId, firstActivity, processes])
-
-
- 
