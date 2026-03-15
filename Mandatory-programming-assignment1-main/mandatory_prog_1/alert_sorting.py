@@ -17,12 +17,11 @@ with open("domains.csv", "w", newline="") as domains,\
     ips_writer = csv.writer(ips, quoting=csv.QUOTE_ALL)
     processes_writer = csv.writer(processes, quoting=csv.QUOTE_ALL)
     
-    
     #Headers
     domains_writer.writerow(["alertId", "machineId", "firstActivity", "domains"])
     fileHashes_writer.writerow(["alertId", "machineId", "firstActivity", "fileHashes"])
     ips_writer.writerow(["alertId", "machineId", "firstActivity", "ips"])
-    processes_writer.writerow(["alertId", "machineId", "firstActivity", "processses"])
+    processes_writer.writerow(["alertId", "machineId", "firstActivity", "processes"])
 
     for alerts in incident_report["alerts"]:
         alertId = alerts["alertId"]
@@ -32,7 +31,6 @@ with open("domains.csv", "w", newline="") as domains,\
         fileHash_list = alerts["entities"]["fileHashes"]
         ips_list = alerts["entities"]["ips"]
         processes_list = alerts["entities"]["processes"]
-    
 
         for domain in domains_list:
             domains_writer.writerow([alertId, machineId, firstActivity, domain])
